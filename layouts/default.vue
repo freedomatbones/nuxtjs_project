@@ -55,6 +55,9 @@
       >
         <v-icon>menu</v-icon>
       </v-btn>
+      <v-btn icon>
+        <button @click="logout"><v-icon>logout</v-icon></button>
+      </v-btn>
     </v-toolbar>
     <v-content>
       <v-container>
@@ -87,6 +90,10 @@
 
 <script>
   export default {
+    methods: {
+      logout() {
+      },
+    },
     data() {
       return {
         clipped: false,

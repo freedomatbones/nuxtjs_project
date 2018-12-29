@@ -44,6 +44,7 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/auth',
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/dotenv'
@@ -53,6 +54,26 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: '/login',
+      home: '/'
+    },
+    strategies: {
+      oauth2_provider: {
+        _scheme: 'oauth2',
+        authorization_endpoint: process.env.AUTH_AUTHORIZATION_ENDPOINT,
+        userinfo_endpoint: process.env.AUTH_USERINFO_ENDPOINT,
+        scope: ['openid', 'profile', 'email', 'address', 'phone'],
+        response_type: 'token',
+        token_type: 'Bearer',
+        redirect_uri: undefined,
+        client_id: process.env.AUTH_CLIENT_ID,
+      }
+    }
   },
 
   /*
@@ -73,5 +94,8 @@ module.exports = {
         })
       }
     }
+  },
+  router: {
+    middleware: ['checkAuth']
   }
 }
