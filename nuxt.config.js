@@ -55,6 +55,9 @@ module.exports = {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
+  env: {
+    SIGN_OUT_ENDPOINT: process.env.SIGN_OUT_ENDPOINT,
+  },
   auth: {
     redirect: {
       login: '/login',
