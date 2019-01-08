@@ -92,6 +92,15 @@
   export default {
     methods: {
       logout() {
+        this.sign_out_provider();
+        this.revoke_my_token();
+        this.$router.push('/login');
+      },
+      sign_out_provider() {
+        this.$axios.delete(process.env.SIGN_OUT_ENDPOINT, {withCredentials: true});
+      },
+      revoke_my_token() {
+        this.$auth.logout();
       },
     },
     data() {
