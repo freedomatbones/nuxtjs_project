@@ -11,7 +11,9 @@ export default {
   },
   mounted: function () {
     this.$nextTick(function () {
-      this.authenticate();
+      if (!this.$route.hash && !this.$auth.loggedIn) {
+        this.authenticate();
+      }
     })
   },
 };
