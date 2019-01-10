@@ -75,6 +75,10 @@ module.exports = {
         token_type: 'Bearer',
         redirect_uri: undefined,
         client_id: process.env.AUTH_CLIENT_ID,
+      },
+      auth0: {
+        domain: process.env.AUTH0_DOMAIN,
+        client_id: process.env.AUTH0_CLIENT_ID
       }
     }
   },

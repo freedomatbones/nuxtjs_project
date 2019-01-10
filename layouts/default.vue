@@ -212,7 +212,9 @@
   export default {
     methods: {
       async logout() {
-        await this.sign_out_provider();
+        if(this.$auth.strategy.name === 'oauth2_provider') {
+          await this.sign_out_provider();
+        }
         this.revoke_my_token();
         this.$router.push('/login');
       },
