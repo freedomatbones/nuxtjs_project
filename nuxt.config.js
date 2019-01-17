@@ -76,6 +76,16 @@ module.exports = {
         redirect_uri: undefined,
         client_id: process.env.AUTH_CLIENT_ID,
       },
+      oauth2_provider_keycloak: {
+        _scheme: 'oauth2',
+        authorization_endpoint: process.env.KEYCLOCK_AUTHORIZATION_ENDPOINT,
+        userinfo_endpoint: process.env.KEYCLOCK_USERINFO_ENDPOINT,
+        scope: ['profile', 'email', 'address', 'phone'],
+        response_type: 'token',
+        token_type: 'Bearer',
+        redirect_uri: undefined,
+        client_id: process.env.KEYCLOCK_CLIENT_ID
+      },
       auth0: {
         domain: process.env.AUTH0_DOMAIN,
         client_id: process.env.AUTH0_CLIENT_ID
